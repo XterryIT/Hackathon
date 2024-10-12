@@ -8,7 +8,7 @@ import {
 
 import {
   subscribeOnAuthStateChanged,
-  checkAdminRole,
+
 } from '../services/firebase/auth';
 
 type User = {
@@ -29,11 +29,11 @@ export default function AuthProvider({ children }: AuthProviderProps) {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
   // const navigate = useNavigate();
   useEffect(() => {
-    // const unsubscriber = subscribeOnAuthStateChanged(async (user) => {
-    //   console.log('user: ', user);
-    //   user.role = (await checkAdminRole()) ? 'admin' : 'user';
-    //   setCurrentUser(user);
-    // });
+    const unsubscriber = subscribeOnAuthStateChanged(async (user) => {
+      console.log('user: ', user);
+
+      setCurrentUser(user);
+    });
     setCurrentUser(null);
 
     // return unsubscriber;
@@ -43,7 +43,7 @@ export default function AuthProvider({ children }: AuthProviderProps) {
     currentUser,
   };
 
-  if (!currentUser && window.location.pathname !== '/login') {
+  if (!currentUser && window.location.pathname !== '/login' && window.location.pathname !== '/register') {
     console.log(window.location.pathname);
     window.location.pathname = '/login';
   }

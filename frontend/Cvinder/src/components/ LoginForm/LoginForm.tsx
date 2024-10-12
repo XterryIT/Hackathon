@@ -2,9 +2,9 @@ import classNames from "classnames";
 import { useState } from "react";
 import "./LoginForm.css";
 
-import { createUser, signInUser } from "../../services/firebase/auth";
+import { signInUser } from "../../services/firebase/auth";
 import { useAuth } from "../../utils/AuthProvider";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 type HoverSides = "right" | "left" | null;
 
@@ -13,10 +13,11 @@ function LoginForm() {
   const [password, setPassword] = useState<string>("");
   const [hoverSide, setHoverSide] = useState<HoverSides>(null);
   const { currentUser } = useAuth();
+  const navigate = useNavigate(); 
   // createUser('test1@gmail.com', '12345678');
   const handleSubmitForm = (e) => {
     e.preventDefault();
-    // signInUser(email, password);
+    signInUser(email, password);
   };
 
   const handleEmailChange = (e) => setEmail(e.target.value);
@@ -28,6 +29,11 @@ function LoginForm() {
 
   const handleMouseLeave = () => {
     setHoverSide(null);
+  };
+
+  const handleRegisterClick = () => {
+    const role = hoverSide === "left" ? "hr" : "worker";
+    navigate(`/register?role=${role}`);
   };
 
   if (currentUser) {
@@ -84,7 +90,7 @@ function LoginForm() {
             />
           </div>
           <button>Login</button>
-          <a href="/register">Not registered? Register now.</a>
+          <a onClick={handleRegisterClick}>Not registered? Register now.</a>
         </form>
       </div>
     </>

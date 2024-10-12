@@ -7,9 +7,9 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import App from "./App.tsx";
-import { LoginForm, PersonalInfo, Users } from "./components/index.ts";
+import { LoginForm, PersonalInfo, RegisterForm, Users } from "./components/index.ts";
 
-import { RootLayout, LogInLayout, TablesLayout } from "../src/layouts/index.ts";
+import { RootLayout, LogInLayout, TablesLayout, RegisterLayout } from "../src/layouts/index.ts";
 
 import "./index.css";
 import "./reset.css";
@@ -30,11 +30,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/register",
-    element: <LogInLayout />,
+    element: <RegisterLayout />,
     children: [
       {
         index: true,
-        element: <LoginForm />,
+        element: <RegisterForm />,
       },
     ],
   },

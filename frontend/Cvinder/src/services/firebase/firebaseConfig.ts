@@ -7,13 +7,13 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyCBy25_bF89S1Jpv9SzBIe2FScbvsOLeW4",
-    authDomain: "liberty-cars-calculator.firebaseapp.com",
-    databaseURL: "https://liberty-cars-calculator-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "liberty-cars-calculator",
-    storageBucket: "liberty-cars-calculator.appspot.com",
-    messagingSenderId: "251134603162",
-    appId: "1:251134603162:web:0882fa64aea3fd85151423"
+    apiKey: "AIzaSyCkVhnlc1Ey3PpvKAlrvwI3HK_4Ahh31pQ",
+    authDomain: "cvinder-6d848.firebaseapp.com",
+    databaseURL: "https://cvinder-6d848-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "cvinder-6d848",
+    storageBucket: "cvinder-6d848.appspot.com",
+    messagingSenderId: "625618764269",
+    appId: "1:625618764269:web:9c0502429829f862fd67e4"
 };
 
 // Initialize Firebase
